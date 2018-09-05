@@ -1,12 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const ImagenProductos = sequelize.define('ImagenProductos', {
+    const ImagenesProductos = sequelize.define('IMAGENES_PRODUCTOS', {
         IMG_Producto: DataTypes.STRING(255),
     }, {
         underscored: true
     });
-    ImagenProductos.associate = function (models) {
+    ImagenesProductos.associate = function (models) {
 
     };
-    return ImagenProductos;
+    return ImagenesProductos;
 };

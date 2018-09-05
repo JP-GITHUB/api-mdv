@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Usuarios = sequelize.define('Usuarios', {
+    const Usuarios = sequelize.define('USUARIOS', {
         nombre: DataTypes.STRING(80),
         apellido: DataTypes.STRING(80),
         rut: DataTypes.CHAR(14),
@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
     Usuarios.associate = function(models) {
-        Usuarios.hasMany(models.Ventas, { as: 'UserVentas' });
-        Usuarios.belongsTo(models.Perfiles, {foreignKey: 'perfile_id'});
+        Usuarios.hasMany(models.Ventas);
+        Usuarios.belongsTo(models.Perfiles);
     };
     return Usuarios;
 };

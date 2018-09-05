@@ -1,12 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const MedioDePago = sequelize.define('MedioDePago', {
-        Tipo_MP: DataTypes.STRING(50)
+    const MediosDePagos = sequelize.define('MEDIOS_DE_PAGOS', {
+        tipo_mp: DataTypes.STRING(50)
     }, {
         underscored: true
     });
     MedioDePago.associate = function(models) {
-        MedioDePago.hasMany(models.Ventas, { as: 'Ventas' })
+        MediosDePagos.hasMany(models.Ventas, { as: 'Ventas' })
     };
     return MedioDePago;
 };

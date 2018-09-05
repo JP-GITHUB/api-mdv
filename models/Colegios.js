@@ -1,16 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Colegios = sequelize.define('Colegios', {
-        Nombre_Colegio: DataTypes.STRING(80),
-        Rut_Colegio: DataTypes.STRING(11),
-        Direccion_Colegio: DataTypes.STRING(100),
-        Telefono_Colegio: DataTypes.STRING(12),
+    const Colegios = sequelize.define('COLEGIOS', {
+        nombre: DataTypes.STRING(80),
+        rut: DataTypes.STRING(11),
+        direccion: DataTypes.STRING(100),
+        telefono: DataTypes.STRING(12),
     }, {
         underscored: true
     });
     Colegios.associate = function (models) {
-        Colegios.hasMany(models.Contactos, { as: 'Contacto' });
-        Colegios.hasMany(models.Productos, { as: 'Producto' });
+        Colegios.hasMany(models.Contactos);
+        Colegios.hasMany(models.Productos);
     };
     return Colegios;
 };
