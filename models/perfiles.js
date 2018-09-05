@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Perfiles.associate = function(models) {
     Perfiles.hasMany(models.Usuarios);
     Perfiles.belongsToMany(models.Permisos, 
-      {through: {model: 'PerfilesPermisos'}, foreignkey: 'permile_id', constraints: true}      
+      {through: {model: 'PerfilesPermisos'}, foreignkey: 'perfile_id', constraints: true}      
     );
   };
   return Perfiles;

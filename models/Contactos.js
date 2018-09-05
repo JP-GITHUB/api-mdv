@@ -6,10 +6,11 @@ module.exports = (sequelize, DataTypes) => {
         Apmat_Contacto: DataTypes.STRING(20),
         Telefono_Contacto: DataTypes.STRING(12),
         Email_Contacto: DataTypes.STRING(50),
+    }, {
+        underscored: true
+    });
+    Contactos.associate = function (models) {
 
-    }, {});
-    Contactos.associate = function(models) {
-        // associations can be defined here
     };
     return Contactos;
 };

@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) => {
         Nombre_Scursal: DataTypes.STRING(80),
         Direccion_Sucursal: DataTypes.STRING(50),
         Telefono_Sucursal: DataTypes.STRING(12)
-
-    }, {});
+    }, {
+        underscored: true
+    });
     Sucursales.associate = function(models) {
-        // associations can be defined here
         Sucursales.hasMany(Colegios, { as: 'Colegios' })
     };
     return Sucursales;
