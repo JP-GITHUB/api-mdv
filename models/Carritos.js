@@ -6,9 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         underscored: true
     });
+    
     Carritos.associate = function (models) {
-        // associations can be defined here
-        Carritos.belongsTo(Venta)
+        Carritos.belongsTo(models.Ventas)
     };
     return Carritos;
 };

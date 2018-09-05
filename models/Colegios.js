@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
     Colegios.associate = function (models) {
-        Colegios.hasMany(Contactos, { as: 'Contacto' });
-        Colegios.hasMany(Productos, { as: 'Producto' });
+        Colegios.hasMany(models.Contactos, { as: 'Contacto' });
+        Colegios.hasMany(models.Productos, { as: 'Producto' });
     };
     return Colegios;
 };

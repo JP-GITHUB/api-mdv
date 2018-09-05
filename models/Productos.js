@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     });
     Productos.associate = function(models) {
         // associations can be defined here
-        Productos.hasMany(ImagenProductos, { as: 'IMG_P' }),
-            Productos.belongsTo(Stock),
+        Productos.hasMany(models.ImagenProductos, { as: 'IMG_P' }),
+            Productos.belongsTo(models.Stock),
             Productos.belongsToMany(models.Carritos, { through: 'ProductoCarrito', foreignKey: 'producto_id', contraints: true });
     };
     return Productos;

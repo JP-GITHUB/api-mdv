@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
     Sucursales.associate = function(models) {
-        Sucursales.hasMany(Colegios, { as: 'Colegios' })
+        Sucursales.hasMany(models.Colegios, { as: 'Colegios' })
     };
     return Sucursales;
 };

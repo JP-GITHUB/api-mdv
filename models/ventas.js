@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true 
     });
     Ventas.associate = function (models) {
-        Ventas.belongsTo(Comprobantes);
-        Ventas.hasMany(Contactos, { as: 'PersonaRetiro' });
+        Ventas.belongsTo(models.Comprobantes);
+        Ventas.hasMany(models.Contactos, { as: 'PersonaRetiro' });
     };
     return Ventas;
 };
