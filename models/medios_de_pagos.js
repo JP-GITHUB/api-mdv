@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         underscored: true
     });
-    MedioDePago.associate = function(models) {
+    MediosDePagos.associate = function(models) {
         MediosDePagos.hasMany(models.Ventas, { as: 'Ventas' })
     };
-    return MedioDePago;
+    return MediosDePagos;
 };
