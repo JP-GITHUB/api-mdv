@@ -2,9 +2,14 @@
 module.exports = (sequelize, DataTypes) => {
   const Perfiles = sequelize.define('Perfiles', {
     nombre: DataTypes.STRING
-  }, {});
+  }, {
+    underscored: true
+  });
   Perfiles.associate = function(models) {
-    // associations can be defined here
+    Perfiles.hasMany(models.Usuarios);
+    Perfiles.belongsToMany(models.Permisos, 
+      {through: {model: 'PerfilesPermisos'}, foreignkey: 'permile_id', constraints: true}      
+    );
   };
   return Perfiles;
 };
