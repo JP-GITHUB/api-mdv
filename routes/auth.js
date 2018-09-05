@@ -1,18 +1,26 @@
 var express = require('express');
-var jwt = require('jsonwebtoken')
+var jwt = require('jsonwebtoken');
+var models = require('../models');
 var router = express.Router();
 
-router.post('/login', function (req, res, next) {
-  let username = req.body.username;
+router.post('/login', async function (req, res, next) {
+  let email = req.body.email;
   let password = req.body.password;
 
-  if(!(username == 'admin' && password == 'admin')){
+  let user = await models.Usuarios.findOne({
+    where: {
+      mail: email,
+      password: password
+    }
+  });
+
+  if(user === null){
     res.json({status: false, msg: 'Las credenciales son inválidas'});
     return;
   }
 
   var tokenData = {
-    username: username
+    email: email
     // DATA
   }
  
