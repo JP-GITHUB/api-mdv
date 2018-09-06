@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
         nombre: DataTypes.STRING(80),
         rut: DataTypes.STRING(11),
         direccion: DataTypes.STRING(100),
-        telefono: DataTypes.STRING(12)
+        telefono: DataTypes.STRING(12),
+        estado: DataTypes.BOOLEAN 
     }, {
         underscored: true
     });
