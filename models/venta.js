@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Ventas = sequelize.define('VENTAS', {
+    const Venta = sequelize.define('VENTA', {
         rut_retiro: DataTypes.STRING(12),
         nombre_retiro: DataTypes.STRING(80),
         descuento: DataTypes.INTEGER,
@@ -8,9 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         underscored: true 
     });
-    Ventas.associate = function (models) {
-        Ventas.belongsTo(models.Comprobantes);
-        Ventas.hasMany(models.Contactos);
+    
+    Venta.associate = function (models) {
+        Venta.belongsTo(models.COMPROBANTE);
+        Venta.hasMany(models.CONTACTO);
     };
-    return Ventas;
+    return Venta;
 };
