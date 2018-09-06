@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     
     Carritos.associate = function (models) {
-        Carritos.belongsTo(models.Ventas)
+        Carritos.belongsTo(models.Ventas);
         Carritos.belongsToMany(models.Productos, 
             { through: 'PRODUCTOS_CARRITOS', foreignKey: 'carrito_id', contraints: true });
     };
