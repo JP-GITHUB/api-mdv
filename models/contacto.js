@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         email: DataTypes.STRING(50),
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'CONTACTO',
         underscored: true
     });
     Contacto.associate = function (models) {

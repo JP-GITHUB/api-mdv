@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     nombre: DataTypes.STRING,
     estado: DataTypes.BOOLEAN
   }, {
+    tableName: 'PERMISO',
       underscored: true
     });
   Permiso.associate = function (models) {

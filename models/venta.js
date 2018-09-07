@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         valor_final: DataTypes.INTEGER,
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'VENTA',
         underscored: true 
     });
     

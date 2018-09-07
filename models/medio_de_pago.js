@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         tipo_mp: DataTypes.STRING(50),
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'MEDIO_DE_PAGO',
         underscored: true
     });
     MedioDePago.associate = function(models) {

@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     nombre: DataTypes.STRING,
     estado: DataTypes.BOOLEAN
   }, {
+    tableName: 'PERFIL',
     underscored: true
   });
   Perfil.associate = function(models) {

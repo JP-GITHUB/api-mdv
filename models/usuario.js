@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         password: DataTypes.STRING(50),
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'USUARIO',
         underscored: true
     });
     Usuario.associate = function(models) {
