@@ -1,18 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Usuarios = sequelize.define('USUARIOS', {
+    const Usuario = sequelize.define('USUARIO', {
         nombre: DataTypes.STRING(80),
         apellido: DataTypes.STRING(80),
         rut: DataTypes.CHAR(14),
         mail: DataTypes.STRING(100),
         telefono: DataTypes.CHAR(100),
-        password: DataTypes.INTEGER(30)
+        password: DataTypes.STRING(50)
     }, {
         underscored: true
     });
-    Usuarios.associate = function(models) {
-        Usuarios.hasMany(models.Ventas);
-        Usuarios.belongsTo(models.Perfiles);
+    Usuario.associate = function(models) {
+        Usuario.hasMany(models.VENTA);
+        Usuario.belongsTo(models.PERFIL);
     };
-    return Usuarios;
+    return Usuario;
 };

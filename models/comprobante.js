@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Comprobantes = sequelize.define('COMPROBANTES', {
+    const Comprobante = sequelize.define('COMPROBANTE', {
         fecha_retiro: DataTypes.DATEONLY,
-        estado_retiro: DataTypes.BOOLEAN,
+        estado_retiro: DataTypes.BOOLEAN
     }, {
         underscored: true
     });
-    Comprobantes.associate = function (models) {
+    Comprobante.associate = function (models) {
         // Asociación con contacto
     };
-    return Comprobantes;
+    return Comprobante;
 };
