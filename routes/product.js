@@ -15,21 +15,6 @@ router.post('/product', async function (req, res, next) {
         return;
     }
 
-    /*
-    var tokenData = {
-        email: email
-        // DATA
-    }
-
-    var token = jwt.sign(tokenData, 'estoesultrasecreto', {
-        expiresIn: 60 * 60 * 24 // expires in 24 hours
-    })
-
-    res.json({
-        status: true,
-        token: token
-    });
-    */
     res.json({
         status: true,
         obj: productos

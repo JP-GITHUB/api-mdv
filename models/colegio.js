@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
         rut: DataTypes.STRING(11),
         direccion: DataTypes.STRING(100),
         telefono: DataTypes.STRING(12),
-        estado: DataTypes.BOOLEAN 
+        estado: DataTypes.BOOLEAN
     }, {
-        underscored: true
-    });
+            underscored: true
+        });
     Colegio.associate = function (models) {
         Colegio.hasMany(models.CONTACTO);
         Colegio.hasMany(models.PRODUCTO);
