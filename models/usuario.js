@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Usuario.associate = function(models) {
         Usuario.hasMany(models.VENTA);
-        Usuario.belongsTo(models.PERFIL);
+        Usuario.belongsTo(models.PERFIL, {foreignKey:'perfil_id'});
     };
     return Usuario;
 };

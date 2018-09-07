@@ -4,8 +4,9 @@ var router = express.Router();
 
 router.get('/', async function(req, res, next) {
 
-  let perfiles = await models.PERFIL.findAll();  
-  res.json({data: perfiles});
+  let usuarios = await models.USUARIO.findAll(); 
+  console.log(usuarios); 
+  res.json({data: usuarios});
 });
 
 module.exports = router;
