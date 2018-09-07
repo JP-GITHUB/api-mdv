@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Perfil = sequelize.define('PERFIL', {
-    nombre: DataTypes.STRING
+    nombre: DataTypes.STRING,
+    estado: DataTypes.BOOLEAN
   }, {
     underscored: true
   });

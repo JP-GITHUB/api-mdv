@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         nombre_retiro: DataTypes.STRING(80),
         descuento: DataTypes.INTEGER,
         valor_final: DataTypes.INTEGER,
+        estado: DataTypes.BOOLEAN
     }, {
         underscored: true 
     });

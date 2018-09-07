@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
         nombre: DataTypes.STRING(50),
         descripcion: DataTypes.STRING(100),
         talla: DataTypes.STRING(3),
-        precio: DataTypes.INTEGER
-
+        precio: DataTypes.INTEGER,
+        estado: DataTypes.BOOLEAN
     }, {
             underscored: true
         });

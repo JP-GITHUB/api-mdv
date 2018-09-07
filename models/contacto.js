@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
         appat: DataTypes.STRING(20),
         apmat: DataTypes.STRING(20),
         telefono: DataTypes.STRING(12),
-        email: DataTypes.STRING(50)
+        email: DataTypes.STRING(50),
+        estado: DataTypes.BOOLEAN
     }, {
         underscored: true
     });
