@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const MedioDePago = sequelize.define('MEDIO_DE_PAGO', {
-        tipo_mp: DataTypes.STRING(50)
+        tipo_mp: DataTypes.STRING(50),
+        estado: DataTypes.BOOLEAN
     }, {
         underscored: true
     });

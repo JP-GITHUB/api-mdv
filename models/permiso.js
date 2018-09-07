@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Permiso = sequelize.define('PERMISO', {
-    nombre: DataTypes.STRING
+    nombre: DataTypes.STRING,
+    estado: DataTypes.BOOLEAN
   }, {
       underscored: true
     });
