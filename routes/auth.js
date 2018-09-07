@@ -8,31 +8,35 @@ router.post('/login', async function (req, res, next) {
   let password = req.body.password;
 
   let user = await models.USUARIO.findOne({
+    attributes: ['id', 'nombre', 'apellido', 'rut', 'mail', 'telefono', 'estado'],
     where: {
       mail: email,
       password: password
-    }
-  }); 
+    },
+    include: [{
+      model: models.PERFIL,
+      attributes: ['id', 'nombre']
+    }]
+  });
 
-  console.log(user)
-
-  if(user === null){
-    res.json({status: false, msg: 'Las credenciales son inválidas'});
+  if (user === null) {
+    res.json({ status: false, msg: 'Las credenciales son inválidas' });
     return;
   }
 
   var tokenData = {
-    email: email
-    // DATA
+    email: email,
+    user: user
   }
- 
+
   var token = jwt.sign(tokenData, 'estoesultrasecreto', {
     expiresIn: 60 * 60 * 24 // expires in 24 hours
   })
- 
+
   res.json({
     status: true,
-    token: token
+    token: token,
+    user_data: user
   });
 
 });
