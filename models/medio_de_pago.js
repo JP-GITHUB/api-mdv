@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
     MedioDePago.associate = function(models) {
-        MedioDePago.hasMany(models.VENTA)
+        MedioDePago.hasMany(models.VENTA, {foreignKey:'mediodepago_id'})
     };
     return MedioDePago;
 };
