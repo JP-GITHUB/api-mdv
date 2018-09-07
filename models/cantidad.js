@@ -4,8 +4,10 @@ module.exports = (sequelize, DataTypes) => {
         //Estado_Stock: DataTypes.STRING(20),
         Cantidad_Disponible: DataTypes.INTEGER
     }, {
+        tableName: 'CANTIDAD',
         underscored: true
     });
+
     Cantidad.associate = function(models) {
 
     };

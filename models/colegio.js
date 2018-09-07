@@ -7,11 +7,12 @@ module.exports = (sequelize, DataTypes) => {
         telefono: DataTypes.STRING(12),
         estado: DataTypes.BOOLEAN
     }, {
-            underscored: true
-        });
+        tableName: 'COLEGIO',
+        underscored: true
+    });
     Colegio.associate = function (models) {
-        Colegio.hasMany(models.CONTACTO);
-        Colegio.hasMany(models.PRODUCTO);
+        Colegio.hasMany(models.CONTACTO, {foreignKey:'colegio_id'});
+        Colegio.hasMany(models.PRODUCTO, {foreignKey:'colegio_id'});
     };
     return Colegio;
 };

@@ -7,12 +7,14 @@ router.post('/login', async function (req, res, next) {
   let email = req.body.email;
   let password = req.body.password;
 
-  let user = await models.Usuarios.findOne({
+  let user = await models.USUARIO.findOne({
     where: {
       mail: email,
       password: password
     }
-  });
+  }); 
+
+  console.log(user)
 
   if(user === null){
     res.json({status: false, msg: 'Las credenciales son inválidas'});

@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         valortotal: DataTypes.INTEGER,
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'CARRITO',
         underscored: true
     });
     

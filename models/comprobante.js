@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         fecha_retiro: DataTypes.DATEONLY,
         estado_retiro: DataTypes.BOOLEAN
     }, {
+        tableName: 'COMPROBANTE',
         underscored: true
     });
     Comprobante.associate = function (models) {

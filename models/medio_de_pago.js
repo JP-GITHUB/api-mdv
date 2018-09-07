@@ -4,10 +4,11 @@ module.exports = (sequelize, DataTypes) => {
         tipo_mp: DataTypes.STRING(50),
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'MEDIO_DE_PAGO',
         underscored: true
     });
     MedioDePago.associate = function(models) {
-        MedioDePago.hasMany(models.VENTA)
+        MedioDePago.hasMany(models.VENTA, {foreignKey:'mediodepago_id'})
     };
     return MedioDePago;
 };

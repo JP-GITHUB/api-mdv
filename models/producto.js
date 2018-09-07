@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         precio: DataTypes.INTEGER,
         estado: DataTypes.BOOLEAN
     }, {
+            tableName: 'PRODUCTO',
             underscored: true
         });
     Producto.associate = function (models) {

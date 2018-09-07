@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         IMG_Producto: DataTypes.STRING(255),
         estado: DataTypes.BOOLEAN
     }, {
+        tableName: 'IMAGEN_PRODUCTO',
         underscored: true
     });
     ImagenProducto.associate = function (models) {
