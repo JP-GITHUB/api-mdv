@@ -69,7 +69,14 @@ router.post('/register', async function (req, res, next) {
             status: false
         });
         return;
-    };    
+    };
+
+    if(user_data.password != data.rptpassword){
+        res.json({
+            status: false
+        });
+        return;
+    };
 
     models.USUARIO
         .findOrCreate({ // Busca el usuario si existe por rut
