@@ -6,13 +6,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "jsonwebtoken": "^8.3.0",
+    "mailgun-js": "^0.20.0",
     "morgan": "~1.9.0",
+    "nodemailer": "^4.6.8",
     "pg": "^7.4.3",
+    "random-hash": "^4.0.1",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.1.1"
   }
