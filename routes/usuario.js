@@ -60,7 +60,8 @@ router.post('/register', async function (req, res, next) {
         mail: data.mail,
         telefono: data.telefono,
         password: data.password,
-        estado: true
+        estado: true,
+        perfil_id: 1
     };
 
     if (user_data.nombre == "" || user_data.apellido == "" || user_data.rut == "" || user_data.mail == "" || user_data.telefono == "" || user_data.password == "") {
