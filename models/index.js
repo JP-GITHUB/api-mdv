@@ -10,9 +10,9 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  sequelize = new Sequelize('postgres://wmdkodfwiddtnt:8fbc7da4a466a18b27b8a38ebb5a895cb932e51a3b976f367996a593b8f3abe3@ec2-50-16-196-138.compute-1.amazonaws.com:5432/dc7lk692rapvqn');
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize('postgres://wmdkodfwiddtnt:8fbc7da4a466a18b27b8a38ebb5a895cb932e51a3b976f367996a593b8f3abe3@ec2-50-16-196-138.compute-1.amazonaws.com:5432/dc7lk692rapvqn');
 }
 
 fs
