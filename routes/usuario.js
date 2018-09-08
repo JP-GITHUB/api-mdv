@@ -11,18 +11,21 @@ router.get('/', middle_auth.validate, async function (req, res, next) {
 
 router.put('/', async function (req, res, next) {
 
-    models.USUARIO.update({
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
-        rut: req.body.rut,
-        mail: req.body.mail,
-        telefono: req.body.telefono,
-        password: req.body.password
-    }, {
+    models.USUARIO.update(
+        {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            rut: req.body.rut,
+            mail: req.body.mail,
+            telefono: req.body.telefono,
+            password: req.body.password,
+            perfil_id: req.body.perfil
+        }, {
             where: {
                 id: req.body.id
             }
-        })
+        }
+    )
         .then(function (rowsUpdated) {
             res.json(rowsUpdated)
         })
@@ -81,6 +84,8 @@ router.post('/register', async function (req, res, next) {
             }))
             console.log(created)
 
+        }).catch(err => {
+            console.log(err);
         })
 
 });
