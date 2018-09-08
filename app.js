@@ -18,6 +18,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.set('view engine', 'ejs');
 
 /*definimos la ruta inicial y recurso a utilizar*/
 app.use('/', indexRouter); /*se inserta recurso que contiene router de express*/
