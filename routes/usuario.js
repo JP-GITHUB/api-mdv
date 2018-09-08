@@ -60,7 +60,16 @@ router.post('/register', async function(req, res, next) {
         mail: data.email,
         telefono: data.telefono,
         password: data.password,
+        estado: true
     };
+
+    if(user_data.nombre == null || user_data.nombre == "" || user_data.apellido == null || user_data.apellido == "" || user_data.rut == null || user_data.rut == ""
+    || user_data.mail == null || user_data.mail == "" || user_data.telefono == null || user_data.telefono == "" || user_data.password == null || user_data.password == ""){
+        res.json({
+            status: false
+        });
+        return;
+    };    
 
     models.USUARIO
         .findOrCreate({ // Busca el usuario si existe por rut
