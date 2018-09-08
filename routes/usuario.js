@@ -1,8 +1,9 @@
 var express = require('express');
 var models = require('../models');
+var middle_auth = require('../middlewares/auth');
 var router = express.Router();
 
-router.get('/', async function(req, res, next) {
+router.get('/', middle_auth.validate, async function(req, res, next) {
 
     let usuarios = await models.USUARIO.findAll();
     res.json({ data: usuarios });
@@ -25,9 +26,9 @@ router.put('/', async function(req, res, next) {
         .then(function(rowsUpdated) {
             res.json(rowsUpdated)
         })
-        .catch(next)
-
-    res.json({});
+        .catch(err => {
+            res.json({status: false, msg, err});
+        })
 });
 
 router.delete('/', async function(req, res, next) {

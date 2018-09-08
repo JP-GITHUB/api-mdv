@@ -1,8 +1,9 @@
 var express = require('express');
 var models = require('../models');
+var middle_auth = require('../middlewares/auth');
 var router = express.Router();
 
-router.get('/', async function (req, res, next) {
+router.get('/', middle_auth.validate, async function (req, res, next) {
 
   let perfiles = await models.PERFIL.findAll();
   res.json({ data: perfiles });
