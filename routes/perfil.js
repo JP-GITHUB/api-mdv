@@ -29,10 +29,30 @@ router.put('/', async function (req, res, next) {
 router.post('/', async function (req, res, next) {
 
   models.PERFIL.create(
-    { nombre: req.body.nombre }
+    { 
+      nombre: req.body.nombre,
+      estado: true 
+    }
   )
     .then(function (rowCreated) {
       res.json(rowCreated)
+    })
+    .catch(next)
+
+  res.json({});
+});
+
+router.delete('/', async function (req, res, next) {
+
+  models.PERFIL.update(
+    { estado: 0 }, {
+      where: {
+        id: req.body.id
+      }
+    }
+  )
+    .then(function (rowsUpdated) {
+      res.json(rowsUpdated)
     })
     .catch(next)
 
