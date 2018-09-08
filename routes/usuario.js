@@ -80,6 +80,8 @@ router.post('/register', async function(req, res, next) {
             }))
             console.log(created)
 
+        }).catch(err => {
+            console.log(err);
         })
 
 });
