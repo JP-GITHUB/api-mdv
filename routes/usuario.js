@@ -57,21 +57,20 @@ router.post('/register', async function (req, res, next) {
         nombre: data.nombre,
         apellido: data.apellido,
         rut: data.run,
-        mail: data.email,
+        mail: data.mail,
         telefono: data.telefono,
         password: data.password,
         estado: true
     };
 
-    if(user_data.nombre == null || user_data.nombre == "" || user_data.apellido == null || user_data.apellido == "" || user_data.rut == null || user_data.rut == ""
-    || user_data.mail == null || user_data.mail == "" || user_data.telefono == null || user_data.telefono == "" || user_data.password == null || user_data.password == ""){
+    if (user_data.nombre == "" || user_data.apellido == "" || user_data.rut == "" || user_data.mail == "" || user_data.telefono == "" || user_data.password == "") {
         res.json({
             status: false
         });
         return;
     };
 
-    if(user_data.password != data.rptpassword){
+    if (user_data.password != data.rptpassword) {
         res.json({
             status: false
         });
@@ -89,20 +88,11 @@ router.post('/register', async function (req, res, next) {
         .spread((user, created) => {
             // Bloque que se ejecuta despues de la accion si se creo o se encontro.
             if (created == true) {
-                console.log("Usuario creado exitosamente");
+                return res.json({ status: true, msg: "Usuario creado exitosamente" });
             } else {
-                console.log("Usuario ya existe en nuestros registros")
+                return res.json({ status: false, msg: "Usuario ya existe en nuestros registros" });
             }
-
-            // Como lo creo o ya existia lo trae y lo muestra
-            console.log(user.get({
-                plain: true
-            }))
-            console.log(created)
-
-        }).catch(err => {
-            console.log(err);
-        })
+        });
 
 });
 
