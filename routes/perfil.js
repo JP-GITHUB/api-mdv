@@ -9,7 +9,6 @@ router.get('/', async function (req, res, next) {
 });
 
 router.put('/', async function (req, res, next) {
-  console.log(req.body)
 
   models.PERFIL.update(
     { nombre: req.body.nombre }, {
@@ -20,6 +19,19 @@ router.put('/', async function (req, res, next) {
   )
     .then(function (rowsUpdated) {
       res.json(rowsUpdated)
+    })
+    .catch(next)
+
+  res.json({});
+});
+
+router.post('/', async function (req, res, next) {
+
+  models.PERFIL.create(
+    { nombre: req.body.nombre }
+  )
+    .then(function (rowCreated) {
+      res.json(rowCreated)
     })
     .catch(next)
 

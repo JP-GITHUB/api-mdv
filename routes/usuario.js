@@ -17,7 +17,8 @@ router.put('/', async function (req, res, next) {
       rut: req.body.rut,
       mail: req.body.mail,
       telefono: req.body.telefono,
-      password: req.body.password
+      password: req.body.password,
+      perfil_id: req.body.perfil
     }, {
       where: {
         id: req.body.id
