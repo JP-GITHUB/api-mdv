@@ -8,7 +8,7 @@ router.post('/login', async function (req, res, next) {
   let password = req.body.password;
 
   let user = await models.USUARIO.findOne({
-    attributes: ['id', 'nombre', 'apellido', 'rut', 'mail', 'telefono', 'estado'],
+    attributes: ['id', 'nombre', 'apellido', 'rut', 'mail', 'estado'],
     where: {
       mail: email,
       password: password
@@ -22,6 +22,11 @@ router.post('/login', async function (req, res, next) {
   if (user === null) {
     res.json({ status: false, msg: 'Las credenciales son inválidas' });
     return;
+  } else {
+    if (user.estado == false) {
+      res.json({ status: false, msg: 'El usuario se encuentra en estado deshabilitado' });
+      return;
+    }
   }
 
   var tokenData = {
