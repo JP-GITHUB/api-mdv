@@ -1,13 +1,10 @@
 {
     "development": {
-        "username": "zbgemrghdwnurr",
-        "password": "af7463bf4fee4fcd726c09e09d67efcc8a406b1e779b82866389393ab3891da4",
-        "database": "d8garc6qj1pm7m",
-        "host": "ec2-174-129-236-147.compute-1.amazonaws.com",
-        "dialect": "postgres",
-        "dialectOptions": {
-            "ssl": true
-          }
+        "username": "postgres",
+        "password": "jp123456",
+        "database": "mdvdb_development",
+        "host": "localhost",
+        "dialect": "postgres"
     },
     "test": {
         "username": "postgres",
