@@ -9,6 +9,7 @@ var schoolsRouter = require('./routes/schools');
 var authRouter = require('./routes/auth');
 var perfilRouter = require('./routes/perfil');
 var usuarioRouter = require('./routes/usuario');
+var productoRouter = require('./routes/product');
 
 /*instanciamos express*/
 var app = express();
@@ -25,5 +26,6 @@ app.use('/schools', schoolsRouter);
 app.use('/auth', authRouter);
 app.use('/perfiles', perfilRouter);
 app.use('/usuarios', usuarioRouter);
+app.use('/productos', productoRouter);
 
 module.exports = app;

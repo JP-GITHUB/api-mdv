@@ -79,15 +79,16 @@ router.post('/register', async function (req, res, next) {
     };
 
     models.USUARIO
-        .findOrCreate({ // Busca el usuario si existe por rut
+        .findOrCreate({
             where: {
-
-                mail: user_data.mail
+                mail: user_data.mail,
+                $or:[
+                    {rut: user_data.rut}
+                ]
             },
-            defaults: user_data // Data que insertara si es que no existe
+            defaults: user_data
         })
         .spread((user, created) => {
-            // Bloque que se ejecuta despues de la accion si se creo o se encontro.
             if (created == true) {
                 return res.json({ status: true, msg: "Usuario creado exitosamente" });
             } else {

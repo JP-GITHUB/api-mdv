@@ -1,15 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const Cantidad = sequelize.define('CANTIDAD', {
-        //Estado_Stock: DataTypes.STRING(20),
-        Cantidad_Disponible: DataTypes.INTEGER
+        cantidad_producto: DataTypes.INTEGER
     }, {
         tableName: 'CANTIDAD',
         underscored: true
     });
 
     Cantidad.associate = function(models) {
-
     };
     return Cantidad;
 };
