@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     
     Carrito.associate = function (models) {
         Carrito.belongsTo(models.VENTA);
-        Carrito.belongsToMany(models.PRODUCTO, { through: 'PRODUCTO_CARRITO', foreignKey: 'carrito_id', contraints: true });
+        Carrito.belongsToMany(models.PRODUCTO, { through: models.PRODUCTO_CARRITO, foreignKey: 'carrito_id', contraints: true });
     };
     return Carrito;
 };

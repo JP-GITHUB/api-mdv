@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     Producto.associate = function (models) {
         Producto.hasMany(models.IMAGEN_PRODUCTO);
         Producto.belongsTo(models.CANTIDAD);
-        Producto.belongsToMany(models.CARRITO, { through: 'PRODUCTO_CARRITO', foreignKey: 'producto_id', contraints: true });
+        Producto.belongsToMany(models.CARRITO, { through: models.PRODUCTO_CARRITO, foreignKey: 'producto_id', contraints: true });
     };
     return Producto;
 };

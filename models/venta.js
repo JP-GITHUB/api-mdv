@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     
     Venta.associate = function (models) {
         Venta.belongsTo(models.COMPROBANTE);
-        //Venta.hasMany(models.CONTACTO);
     };
     return Venta;
 };
