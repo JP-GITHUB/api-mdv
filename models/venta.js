@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     
     Venta.associate = function (models) {
-        Venta.belongsTo(models.COMPROBANTE);
+        Venta.belongsTo(models.COMPROBANTE, { foreignKey: 'comprobante_id' });
     };
     return Venta;
 };

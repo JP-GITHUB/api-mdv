@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
     Sucursal.associate = function(models) {
-        Sucursal.hasMany(models.COLEGIO)
+        Sucursal.hasMany(models.COLEGIO, { foreignKey: 'sucursal_id' })
     };
     return Sucursal;
 };
