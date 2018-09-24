@@ -61,7 +61,7 @@ router.post('/register', async function (req, res, next) {
         telefono: data.telefono,
         password: data.password,
         estado: true,
-        perfil_id: 1
+        perfil_id: 3
     };
 
     if (user_data.nombre == "" || user_data.apellido == "" || user_data.rut == "" || user_data.mail == "" || user_data.telefono == "" || user_data.password == "") {
@@ -82,8 +82,8 @@ router.post('/register', async function (req, res, next) {
         .findOrCreate({
             where: {
                 mail: user_data.mail,
-                $or:[
-                    {rut: user_data.rut}
+                $or: [
+                    { rut: user_data.rut }
                 ]
             },
             defaults: user_data
