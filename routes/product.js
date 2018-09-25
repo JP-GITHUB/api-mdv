@@ -22,18 +22,39 @@ router.get('/', async function (req, res, next) {
 
 });
 
+router.get('/:colegio_id', async function (req, res, next) {
+    let productos = await models.PRODUCTO.findAll({
+        where: {
+            colegio_id: req.params.colegio_id
+        },
+        include: [models.TALLA]
+    });
+
+    if (productos === null) {
+        res.json({
+            status: false,
+            msg: 'no hay productos para mostrar'
+        });
+        return;
+    }
+
+    res.json({
+        status: true,
+        obj: productos
+    });
+
+});
+
 router.post('/', async function (req, res, next) {
 
-    models.PRODUCTO.create(
-        {
+    models.PRODUCTO.create({
             nombre: req.body.nombre,
             descripcion: req.bode.descripcion,
             talla: req.body.talla,
             precio: req.body.precio,
             cantidad: 0,
             estado: true
-        }
-    )
+        })
         .then(function (rowCreated) {
             res.json(rowCreated)
         })
@@ -44,8 +65,7 @@ router.post('/', async function (req, res, next) {
 
 router.put('/', async function (req, res, next) {
 
-    models.PRODUCTO.update(
-        {
+    models.PRODUCTO.update({
             nombre: req.body.nombre,
             descripcion: req.bode.descripcion,
             talla: req.body.talla,
@@ -54,8 +74,7 @@ router.put('/', async function (req, res, next) {
             where: {
                 id: req.body.id
             }
-        }
-    )
+        })
         .then(function (rowsUpdated) {
             res.json(rowsUpdated)
         })
@@ -66,15 +85,13 @@ router.put('/', async function (req, res, next) {
 
 router.put('/cantidad', async function (req, res, next) {
 
-    models.PRODUCTO.update(
-        {
+    models.PRODUCTO.update({
             cantidad: req.bode.cantidad
         }, {
             where: {
                 id: req.body.id
             }
-        }
-    )
+        })
         .then(function (rowsUpdated) {
             res.json(rowsUpdated)
         })
@@ -85,19 +102,19 @@ router.put('/cantidad', async function (req, res, next) {
 
 router.delete('/', async function (req, res, next) {
 
-    models.PRODUCTO.update(
-      { estado: 0 }, {
-        where: {
-          id: req.body.id
-        }
-      }
-    )
-      .then(function (rowsUpdated) {
-        res.json(rowsUpdated)
-      })
-      .catch(next)
-  
+    models.PRODUCTO.update({
+            estado: 0
+        }, {
+            where: {
+                id: req.body.id
+            }
+        })
+        .then(function (rowsUpdated) {
+            res.json(rowsUpdated)
+        })
+        .catch(next)
+
     res.json({});
-  });
+});
 
 module.exports = router;
