@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const ProductoTalla = sequelize.define('PRODUCTO_TALLA', {
-    precio: DataTypes.INTEGER
+    precio: DataTypes.INTEGER,
+    cantidad: DataTypes.INTEGER
   }, {
       tableName: 'PRODUCTO_TALLA',
       underscored: true

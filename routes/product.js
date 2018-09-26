@@ -5,20 +5,7 @@ var router = express.Router();
 
 router.get('/', async function (req, res, next) {
     let productos = await models.PRODUCTO.findAll();
-
-    //mientras no filtro por el estado del producto pues asumo que mejor traer todo y filtrar en la vista
-    if (productos === null) {
-        res.json({
-            status: false,
-            msg: 'no hay productos para mostrar'
-        });
-        return;
-    }
-
-    res.json({
-        status: true,
-        obj: productos
-    });
+    res.json({data: productos});
 
 });
 
@@ -49,10 +36,7 @@ router.post('/', async function (req, res, next) {
 
     models.PRODUCTO.create({
             nombre: req.body.nombre,
-            descripcion: req.bode.descripcion,
-            talla: req.body.talla,
-            precio: req.body.precio,
-            cantidad: 0,
+            descripcion: req.body.descripcion,
             estado: true
         })
         .then(function (rowCreated) {
@@ -67,9 +51,7 @@ router.put('/', async function (req, res, next) {
 
     models.PRODUCTO.update({
             nombre: req.body.nombre,
-            descripcion: req.bode.descripcion,
-            talla: req.body.talla,
-            precio: req.body.precio,
+            descripcion: req.bode.descripcion
         }, {
             where: {
                 id: req.body.id
