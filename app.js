@@ -10,6 +10,7 @@ var authRouter = require('./routes/auth');
 var perfilRouter = require('./routes/perfil');
 var usuarioRouter = require('./routes/usuario');
 var productoRouter = require('./routes/product');
+var tallaRouter = require('./routes/talla');
 
 /*instanciamos express*/
 var app = express();
@@ -27,5 +28,6 @@ app.use('/auth', authRouter);
 app.use('/perfiles', perfilRouter);
 app.use('/usuarios', usuarioRouter);
 app.use('/productos', productoRouter);
+app.use('/tallas', tallaRouter);
 
 module.exports = app;
