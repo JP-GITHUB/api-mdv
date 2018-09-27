@@ -51,7 +51,7 @@ router.put('/', async function (req, res, next) {
 
     models.PRODUCTO.update({
             nombre: req.body.nombre,
-            descripcion: req.bode.descripcion
+            descripcion: req.body.descripcion
         }, {
             where: {
                 id: req.body.id
