@@ -4,7 +4,9 @@ var models = require('../models');
 var router = express.Router();
 
 router.get('/', async function (req, res, next) {
-    let productos = await models.PRODUCTO.findAll();
+    let productos = await models.PRODUCTO.findAll({
+        include: [models.COLEGIO]
+    });
     res.json({data: productos});
 
 });
@@ -37,7 +39,8 @@ router.post('/', async function (req, res, next) {
     models.PRODUCTO.create({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            estado: true
+            estado: true,
+            colegio_id: req.body.colegio_id
         })
         .then(function (rowCreated) {
             res.json(rowCreated)
@@ -51,7 +54,8 @@ router.put('/', async function (req, res, next) {
 
     models.PRODUCTO.update({
             nombre: req.body.nombre,
-            descripcion: req.body.descripcion
+            descripcion: req.body.descripcion,
+            colegio_id: req.body.colegio_id
         }, {
             where: {
                 id: req.body.id
