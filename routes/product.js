@@ -9,7 +9,7 @@ router.get('/', async function (req, res, next) {
 
 });
 
-router.get('/:colegio_id', async function (req, res, next) {
+router.get('/colegio/:colegio_id', async function (req, res, next) {
     let productos = await models.PRODUCTO.findAll({
         where: {
             colegio_id: req.params.colegio_id
@@ -97,6 +97,29 @@ router.delete('/', async function (req, res, next) {
         .catch(next)
 
     res.json({});
+});
+
+router.get('/:id', async function (req, res, next) {
+    let productos = await models.PRODUCTO.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [models.TALLA]
+    });
+
+    if (productos === null) {
+        res.json({
+            status: false,
+            msg: 'no hay productos para mostrar'
+        });
+        return;
+    }
+
+    res.json({
+        status: true,
+        obj: productos
+    });
+
 });
 
 module.exports = router;

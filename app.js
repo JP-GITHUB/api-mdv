@@ -11,6 +11,7 @@ var perfilRouter = require('./routes/perfil');
 var usuarioRouter = require('./routes/usuario');
 var productoRouter = require('./routes/product');
 var tallaRouter = require('./routes/talla');
+var saleRouter = require('./routes/sale');
 
 /*instanciamos express*/
 var app = express();
@@ -29,5 +30,6 @@ app.use('/perfiles', perfilRouter);
 app.use('/usuarios', usuarioRouter);
 app.use('/productos', productoRouter);
 app.use('/tallas', tallaRouter);
+app.use('/ventas', saleRouter);
 
 module.exports = app;
