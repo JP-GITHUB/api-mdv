@@ -5,7 +5,11 @@ var router = express.Router();
 
 router.get('/', async function (req, res, next) {
     let existencias = await models.PRODUCTO_TALLA.findAll({
-        include: [models.TALLA, models.PRODUCTO]
+        include: 
+        [
+            {model: models.TALLA},
+            {model: models.PRODUCTO, include:[models.COLEGIO]}
+        ]
     });
     res.json({ data: existencias });
 
