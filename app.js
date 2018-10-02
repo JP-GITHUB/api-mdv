@@ -12,6 +12,7 @@ var usuarioRouter = require('./routes/usuario');
 var productoRouter = require('./routes/product');
 var tallaRouter = require('./routes/talla');
 var saleRouter = require('./routes/sale');
+var existenciaRouter = require('./routes/existencia');
 
 /*instanciamos express*/
 var app = express();
@@ -31,5 +32,6 @@ app.use('/usuarios', usuarioRouter);
 app.use('/productos', productoRouter);
 app.use('/tallas', tallaRouter);
 app.use('/ventas', saleRouter);
+app.use('/existencias', existenciaRouter);
 
 module.exports = app;

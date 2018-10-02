@@ -29,7 +29,7 @@ var server = http.createServer(app);
 
 // sync() will create all table if they doesn't exist in database
 //Comentar {force: true} para no crear denuevo la bdd
-models.sequelize.sync( /* {force: true} */ ).then(function() {
+models.sequelize.sync( {force: true}  ).then(function() {
     server.listen(port);
     server.on('error', onError);
     server.on('listening', onListening);

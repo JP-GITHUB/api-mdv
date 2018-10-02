@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true
     });
   ProductoTalla.associate = function (models) {
+    ProductoTalla.belongsTo(models.PRODUCTO, { foreignKey: 'producto_id' });
+    ProductoTalla.belongsTo(models.TALLA, { foreignKey: 'talla_id' });
   };
   return ProductoTalla;
 };
