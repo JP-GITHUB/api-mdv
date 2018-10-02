@@ -35,7 +35,7 @@ router.post('/login', async function (req, res, next) {
   }
 
   var token = jwt.sign(tokenData, 'estoesultrasecreto', {
-    expiresIn: 60 * 60 * 24 // expires in 24 hours
+    expiresIn: '20m'
   })
 
   res.json({
